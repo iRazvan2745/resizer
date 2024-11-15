@@ -5,14 +5,12 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Slider } from '@/components/ui/slider';
 import { Toast } from '@/components/ui/toast';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Upload, ImageIcon, Trash2, Download, RefreshCw, Moon, Sun, ZoomIn, ZoomOut, Lock, Unlock, Settings } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useTheme } from 'next-themes';
 
 type PresetKey = 'minecraft' | 'fivem' | 'discord' | 'avatar' | 'thumbnail';
 
@@ -193,7 +191,7 @@ export default function ImageResizer() {
       <Card className="w-full max-w-4xl bg-white dark:bg-gray-800 shadow-xl">
         <CardHeader className="space-y-1 flex flex-row items-center justify-between">
           <div>
-            <CardTitle className="text-2xl font-bold tracking-tight">Image Resizer</CardTitle>
+            <CardTitle className="text-2xl font-bold tracking-tight"><a href="https://github.com/irazvan2745/resizer" target="_blank" rel="noopener noreferrer">Open Source Image Resizer</a></CardTitle>
             <CardDescription>Upload, resize, and download your images with ease</CardDescription>
           </div>
           <div className="flex items-center space-x-2">
@@ -394,6 +392,7 @@ export default function ImageResizer() {
           <canvas ref={canvasRef} style={{ display: 'none' }} />
         </CardContent>
       </Card>
+      
       {toastMessage && (
         <Toast
           variant="default"
