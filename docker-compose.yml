@@ -1,0 +1,8 @@
+services:
+  resizer:
+    image: irazz/resizer:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - UPSTASH_REDIS_URL=https://novel-titanic-xxxxx.upstash.io
+      - UPSTASH_REDIS_TOKEN=AXB9AAIxxxxxxxxxxxxxxxx
