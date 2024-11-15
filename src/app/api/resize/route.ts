@@ -45,9 +45,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ imageData: cachedImage });
     }
 
-    // Placeholder: Add your image processing logic here
-    // Example: After processing, you would cache the result
-    await redis.set(cacheKey, imageData, { ex: 60 * 60 * 24 * 7 }); // Cache for 7 days
+    await redis.set(cacheKey, imageData, { ex: 60 * 60 * 6 }); 
 
     return NextResponse.json({ imageData });
   } catch (error) {
