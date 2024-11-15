@@ -4,5 +4,6 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - UPSTASH_REDIS_URL=https://novel-titanic-xxxxx.upstash.io
-      - UPSTASH_REDIS_TOKEN=AXB9AAIxxxxxxxxxxxxxxxx
+      - UPSTASH_REDIS_URL=https://novel-titan-xxxx.upstash.io
+      - UPSTASH_REDIS_TOKEN=AXB9Axxxxxxxxx
+    restart: unless-stopped
