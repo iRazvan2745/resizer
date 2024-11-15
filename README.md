@@ -1,5 +1,7 @@
 # Resize Iraz
 
+Demo: [Resizer.iRazz.lol](https://resizer.irazz.lol)
+
 This is a [Next.js 15](https://nextjs.org) project that provides a seamless image resizing experience. Users can upload images, resize them to specified dimensions or presets, and download the resized images.
 
 ## Getting Started
@@ -10,6 +12,7 @@ Before you begin, ensure you have the following installed:
 
 - Node.js (version 20 or higher)
 - npm (comes with Node.js)
+- Upstash Redis Database (needed for caching and rate limiting)
 - Docker (optional, for containerization)
 - Docker Compose (optional, for container orchestration)
 
@@ -20,24 +23,16 @@ Before you begin, ensure you have the following installed:
 To run the application in a Docker container using Docker Compose, follow these steps:
 
 1. Create a `docker-compose.yml` file with the following content:
-
    ```yaml
-   version: '3.8'
    services:
-     app:
-       build:
-         context: .
-         dockerfile: Dockerfile
+     resizer:
+       image: irazvan2745/resizer:latest
        ports:
          - "3000:3000"
        environment:
-         UPSTASH_REDIS_URL: ${UPSTASH_REDIS_URL}
-         UPSTASH_REDIS_TOKEN: ${UPSTASH_REDIS_TOKEN}
-       volumes:
-         - .:/app
-       command: npm run devmode
+         - UPSTASH_REDIS_URL=https://novel-titanic-xxxxx.upstash.io
+         - UPSTASH_REDIS_TOKEN=AXB9AAIxxxxxxxxxxxxxxxx
    ```
-
 2. Start the Docker container in detached mode:
 
    ```bash
@@ -54,7 +49,7 @@ To stop the Docker container, run:
    docker compose down
    ```
 
-#### Using npm
+#### Using npm **(NOT RECOMMENDED)** docker is the best :p
 
    1. Clone the repository:
 
